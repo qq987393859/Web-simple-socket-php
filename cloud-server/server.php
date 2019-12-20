@@ -26,7 +26,7 @@ while(true){
                 echo socket_last_error($read);
                 echo "Receive data from no-namer:".$data;
             }
-            socket_write($read, "Received your data\n"); //make a response to the client
+            socket_write($read, $data); //make a response to the client
             foreach ($connectPool as $othersCon) { 
                 if($othersCon != $server && $othersCon != $read) {
                     socket_getpeername($read,$remote_ip);
